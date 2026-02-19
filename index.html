@@ -12,6 +12,7 @@
 <header class="card">
     <h1>Juvelyn A. Virtudes</h1>
     <p>IT Student | Web Systems and Technologies</p>
+    <button id="themeToggle">Toggle Dark Mode</button>
 </header>
 
 <main>
@@ -37,8 +38,9 @@
             </a>
         </p>
     </section>
+    <button id="toggleSkills">Show/Hide Skills</button>
 
-    <section class="card">
+    <section class="card" id="skillsSection">
         <h2>Skills</h2>
         <ul>
             <li>HTML</li>
@@ -94,10 +96,10 @@
     <section class="card">
         <h2>Contact Me</h2>
         <form>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
+            <input type="text" id="name" placeholder="Name">
+            <input type="email" id="email" placeholder="Email">
             <textarea placeholder="Message"></textarea>
-            <button type="submit">Send</button>
+            <button type="submit" id="submitBtn">Send</button>
         </form>
     </section>
 
@@ -109,5 +111,6 @@
 
 </div>
 
+<script src="js/script.js"></script>
 </body>
 </html>

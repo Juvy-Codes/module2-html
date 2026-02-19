@@ -122,3 +122,19 @@ footer {
     margin-top: 20px;
     font-size: 14px;
 }
+
+/* ===== Dark Mode ===== */
+.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+.dark-mode .card {
+    background-color: #333;
+    color: white;
+}
+
+/* ===== Hidden Class ===== */
+.hidden {
+    display: none;
+}
