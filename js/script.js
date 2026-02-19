@@ -3,7 +3,14 @@ console.log("JavaScript connected successfully!");
 const themeToggle = document.getElementById("themeToggle");
 
 themeToggle.addEventListener("click", function () {
+
     document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        themeToggle.textContent = "Toggle Light Mode";
+    } else {
+        themeToggle.textContent = "Toggle Dark Mode";
+    }
 });
 
 const toggleSkills = document.getElementById("toggleSkills");
