@@ -1,0 +1,146 @@
+/* 1. Global Reset - Removes white borders and default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Body Setup - Controls the background for the entire screen */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Default Light Mode Background */
+    color: #333;
+    padding: 20px;
+    min-height: 100vh; /* Forces background to cover full screen height */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 3. Dark Mode Toggle - Triggered by React State in App.jsx */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+/* 4. Layout Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 5. Card Components */
+.card {
+    background: #fbfafa;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+/* Update cards when Dark Mode is active */
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
+}
+
+/* 6. Profile Image - Centered and Styled */
+.profile-img {
+    display: block;
+    margin: 1rem auto;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 3px solid #62050d;
+}
+
+/* 7. Typography and Elements */
+header {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+h1, h2, p {
+    margin-bottom: 10px;
+}
+
+ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #2165b2;
+}
+
+a:hover {
+    color: #f60303;
+}
+
+/* 8. Education Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #62050d;
+    color: white;
+}
+
+/* 9. Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 10. Buttons */
+button {
+    padding: 10px;
+    background-color: #62050d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #2e1d1e;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center; /* Centers the text */
+    margin-top: 30px;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top: 1px solid var(--border-color, #ccc); /* Optional: adds a nice separator line */
+}
+
+/* Ensure footer text is visible in dark mode */
+body.dark-mode footer {
+    color: #888; 
+}
