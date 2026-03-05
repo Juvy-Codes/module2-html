@@ -29,14 +29,21 @@ body.dark-mode {
     padding: 20px;
 }
 
-/* 5. Card Components */
+/* Use the class selector .card instead of the tag selector section */
 .card {
-    background: #fbfafa;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
+  background-color: #ffffff; 
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  /* FIXED: RGBA colors must be 0-255. Changed 0.5 to 0 for a clean black shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.3s ease;
+}
+
+/* Optional: Add a hover effect to make the shadow "pop" */
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
 /* Update cards when Dark Mode is active */
@@ -57,11 +64,19 @@ body.dark-mode .card {
     border: 3px solid #62050d;
 }
 
-/* 7. Typography and Elements */
-header {
+/* Update your section 7 (Header) in index.css */
+header.card {
+    position: relative; /* This is the "anchor" for the button */
+    padding-top: 40px;   /* Adds space so the title doesn't hit the button */
     text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
+}
+
+header.card button {
+    position: absolute; /* Moves the button independently */
+    top: 15px;          /* Distance from the top of the card */
+    right: 15px;        /* Distance from the right of the card */
+    padding: 5px 10px;  /* Makes the toggle slightly smaller and cleaner */
+    font-size: 12px;
 }
 
 h1, h2, p {
@@ -137,7 +152,7 @@ footer {
     margin-top: 30px;
     padding: 20px 0;
     font-size: 14px;
-    border-top: 1px solid var(--border-color, #ccc); /* Optional: adds a nice separator line */
+    border-top: 1px solid #ccc; /* Optional: adds a nice separator line */
 }
 
 /* Ensure footer text is visible in dark mode */

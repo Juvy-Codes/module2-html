@@ -1,4 +1,5 @@
-function Education() {
+// 1. Accept 'education' as a prop
+function Education({ education }) {
   return (
     <section className="card">
       <h2>Education</h2>
@@ -11,29 +12,18 @@ function Education() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>College (BSIT)</td>
-            <td>USTP – CDO Campus</td>
-            <td>Present</td>
-          </tr>
-          <tr>
-            <td>Senior High School</td>
-            <td>PHINMA – COC</td>
-            <td>2023–2024</td>
-          </tr>
-          <tr>
-            <td>High School</td>
-            <td>Tablon National High School</td>
-            <td>2021–2022</td>
-          </tr>
-          <tr>
-            <td>Elementary</td>
-            <td>Tablon Elementary School</td>
-            <td>2016</td>
-          </tr>
+          {/* 2. Dynamically render table rows using map() */}
+          {education.map((item, index) => (
+            <tr key={index}>
+              <td>{item.program}</td>
+              <td>{item.school}</td>
+              <td>{item.year}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </section>
   );
 }
+
 export default Education;

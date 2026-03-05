@@ -9,8 +9,32 @@ import ContactForm from "./components/Contact";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // This ensures the <body> element itself changes color, 
-  // removing that white border completely.
+  // --- MODULE 6 DATA STRUCTURES ---
+  const skillsData = ["HTML", "CSS", "JavaScript", "React", "Frontend Development", "Git"];
+
+  const educationData = [
+    {
+      year: "2024 - Present",
+      program: "BS Information Technology",
+      school: "USTP"
+    },
+    {
+      year: "2022 - 2024",
+      program: "Senior High School",
+      school: "PHINMA - COC"
+    },
+    {
+      year: "2018 - 2022",
+      program: "Highschool",
+      school: "Tablon NHS"
+    },
+    {
+      year: "2012 - 2018",
+      program: "Elementary School",
+      school: "Tablon ES"
+    }
+  ];
+
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode");
@@ -20,15 +44,20 @@ function App() {
   }, [darkMode]);
 
   return (
-    // We keep the className here too for specific component styling
     <div className={darkMode ? "dark-mode" : ""}>
       <div className="container">
         <Header toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
         <main>
           <About />
-          <Skills />
+          
+          {/* TASK 1: Passing skills array as a prop */}
+          <Skills skills={skillsData} />
+          
           <Projects />
-          <Education />
+          
+          {/* TASK 3: Passing education array as a prop */}
+          <Education education={educationData} />
+          
           <ContactForm />
         </main>
         <footer>
