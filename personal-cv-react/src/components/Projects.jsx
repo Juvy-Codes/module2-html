@@ -1,15 +1,22 @@
+import tetris from "../assets/tetris.png";
+import payroll from "../assets/payroll.png";
+
 function Projects() {
   return (
-    <section className="card">
+    <section className="card" id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>Tetris GUI Game</strong> – A graphical Tetris game developed using Python and Tkinter.
-        </li>
-        <li>
-          <strong>Currency Converter</strong> – A program that converts currencies using predefined exchange rates.
-        </li>
-      </ul>
+      <div className="projects-grid">
+        <div className="project-item">
+          <img src={tetris} alt="Tetris GUI Game" className="project-img" />
+          <strong>Tetris GUI Game</strong>
+          <p>A graphical Tetris game developed using Python and Tkinter.</p>
+        </div>
+        <div className="project-item">
+          <img src={payroll} alt="Payroll System" className="project-img" />
+          <strong>Payroll System</strong>
+          <p>A program that manages employee payroll and salary computation.</p>
+        </div>
+      </div>
     </section>
   );
 }

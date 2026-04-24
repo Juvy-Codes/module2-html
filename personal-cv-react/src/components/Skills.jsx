@@ -5,21 +5,20 @@ function Skills({ skills }) {
   const [visible, setVisible] = useState(true);
 
   return (
-    <>
-      <button id="toggleSkills" onClick={() => setVisible(!visible)}>
+    <div id="skills">
+      <button className="toggle-btn" onClick={() => setVisible(!visible)}>
         {visible ? "Hide Skills" : "Show Skills"}
       </button>
-      
       {visible && (
         <Card title="Skills">
-          <ul>
+          <div className="skills-grid">
             {skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
+              <span key={index} className="skill-pill">{skill}</span>
             ))}
-          </ul>
+          </div>
         </Card>
       )}
-    </>
+    </div>
   );
 }
 

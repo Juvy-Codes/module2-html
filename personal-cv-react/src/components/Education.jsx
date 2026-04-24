@@ -1,27 +1,19 @@
-// 1. Accept 'education' as a prop
 function Education({ education }) {
   return (
-    <section className="card">
+    <section className="card" id="education">
       <h2>Education</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Program</th>
-            <th>Institution</th>
-            <th>Year</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* 2. Dynamically render table rows using map() */}
-          {education.map((item, index) => (
-            <tr key={index}>
-              <td>{item.program}</td>
-              <td>{item.school}</td>
-              <td>{item.year}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="timeline">
+        {education.map((item, index) => (
+          <div className="timeline-item" key={index}>
+            <div className="timeline-dot" />
+            <div className="timeline-content">
+              <span className="timeline-year">{item.year}</span>
+              <strong className="timeline-program">{item.program}</strong>
+              <span className="timeline-school">{item.school}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

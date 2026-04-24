@@ -1,86 +1,147 @@
-/* 1. Global Reset - Removes white borders and default spacing */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 2. Body Setup - Controls the background for the entire screen */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Default Light Mode Background */
-    color: #333;
+    background: linear-gradient(160deg, #fff2ee 0%, #ffccbb 30%, #ff8c66 60%, #ff5722 90%, #ff4500 100%);
+    background-attachment: fixed;
+    color: #1a1a1a;
     padding: 20px;
-    min-height: 100vh; /* Forces background to cover full screen height */
-    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    transition: background 0.1s ease, color 0.1s ease; /* SUPER FAST ⚡ */
 }
 
-/* 3. Dark Mode Toggle - Triggered by React State in App.jsx */
 body.dark-mode {
-    background-color: #121212 !important;
-    color: #ffffff !important;
+    background: linear-gradient(160deg, #200a00 0%, #401400 30%, #601f00 60%, #802a00 90%, #a03300 100%) !important;
+    background-attachment: fixed !important;
+    color: #e8e8e8 !important;
+    transition: background 0.1s ease, color 0.1s ease; /* SUPER FAST ⚡ */
 }
 
-/* 4. Layout Container */
 .container {
-    max-width: 800px;
+    max-width: 780px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
 }
 
-/* Use the class selector .card instead of the tag selector section */
+/* Cards */
 .card {
-  background-color: #ffffff; 
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 8px;
-  /* FIXED: RGBA colors must be 0-255. Changed 0.5 to 0 for a clean black shadow */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  transition: transform 0.3s ease;
+    background-color: #ffffff;
+    padding: 28px 32px;
+    margin: 12px 0;
+    border-radius: 12px;
+    border: 0.5px solid rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Optional: Add a hover effect to make the shadow "pop" */
 .card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+    box-shadow: 0 6px 24px rgba(255,69,0,0.15);
+    transform: translateY(-2px);
 }
 
-/* Update cards when Dark Mode is active */
 body.dark-mode .card {
-    background-color: #1e1e1e;
-    color: white;
-    border: 1px solid #333;
+    background-color: #1a1a1a;
+    color: #e8e8e8;
+    border: 0.5px solid rgba(255,255,255,0.08);
+    box-shadow: none;
 }
 
-/* 6. Profile Image - Centered and Styled */
-.profile-img {
-    display: block;
-    margin: 1rem auto;
-    height: 200px;
-    width: 200px;
-    border-radius: 10px;
-    object-fit: cover;
-    border: 3px solid #62050d;
-}
-
-/* Update your section 7 (Header) in index.css */
+/* Header */
 header.card {
-    position: relative; /* This is the "anchor" for the button */
-    padding-top: 40px;   /* Adds space so the title doesn't hit the button */
+    position: relative;
+    padding: 48px 32px 36px;
     text-align: center;
+    border-top: 4px solid #ff4500;
 }
 
-header.card button {
-    position: absolute; /* Moves the button independently */
-    top: 15px;          /* Distance from the top of the card */
-    right: 15px;        /* Distance from the right of the card */
-    padding: 5px 10px;  /* Makes the toggle slightly smaller and cleaner */
-    font-size: 12px;
+header.card h1 {
+    font-family: 'Lora', serif;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
 }
 
-h1, h2, p {
+header.card p {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    margin: 0;
+}
+
+/* Dark mode icon button */
+.darkmode-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #ff4500;
+    border: 1px solid #ff4500;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    font-size: 14px;
+}
+
+.darkmode-btn:hover {
+    background: #ff4500;
+    color: white;
+}
+
+body.dark-mode .darkmode-btn {
+    color: #ffab91;
+    border-color: #ffab91;
+}
+
+body.dark-mode .darkmode-btn:hover {
+    background: #ffab91;
+    color: #0f0f0f;
+}
+
+/* Typography */
+h1, h2 {
+    font-family: 'Lora', serif;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1.5px solid #ff4500;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    color: #ff4500;
+}
+
+body.dark-mode h2 {
+    color: #ffab91;
+    border-bottom-color: #ffab91;
+}
+
+p {
     margin-bottom: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+body.dark-mode p {
+    color: #aaa;
 }
 
 ul {
@@ -90,72 +151,511 @@ ul {
 
 a {
     text-decoration: none;
-    color: #2165b2;
+    color: #ff4500;
+    transition: opacity 0.2s ease;
 }
 
 a:hover {
-    color: #f60303;
+    opacity: 0.7;
+    color: #ff4500;
 }
 
-/* 8. Education Table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #62050d;
-    color: white;
-}
-
-/* 9. Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-input, textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* 10. Buttons */
+/* Buttons */
 button {
-    padding: 10px;
-    background-color: #62050d;
+    padding: 10px 20px;
+    background-color: #ff4500;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-    background-color: #2e1d1e;
+    background-color: #cc3700;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Toggle Skills button */
+.toggle-btn {
+    display: block;
+    margin: 0 0 8px auto;
+    padding: 5px 14px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: transparent;
+    color: #ff4500;
+    border: 1px solid #ff4500;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.toggle-btn:hover {
+    background: #ff4500;
+    color: white;
+}
+
+body.dark-mode .toggle-btn {
+    color: #ffab91;
+    border-color: #ffab91;
+}
+
+body.dark-mode .toggle-btn:hover {
+    background: #ffab91;
+    color: #0f0f0f;
+}
+
+/* About */
+.about-grid {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.about-grid .profile-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff4500;
+    flex-shrink: 0;
+    margin: 0;
+    display: block;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.about-content p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #555;
+    margin: 0;
+}
+
+body.dark-mode .about-content p {
+    color: #999;
+}
+
+.about-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.about-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #ff4500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.about-link:hover {
+    color: #ff6b35;
+    opacity: 1;
+}
+
+.about-link-icon {
+    font-size: 13px;
+    width: 18px;
+    text-align: center;
+}
+
+/* Skills */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,69,0,0.4);
+    color: #ff4500;
+    background: rgba(255,69,0,0.04);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.skill-pill:hover {
+    background: #ff4500;
+    color: white;
+    cursor: default;
+}
+
+body.dark-mode .skill-pill {
+    border-color: rgba(255,171,145,0.4);
+    color: #ffab91;
+    background: rgba(255,171,145,0.05);
+}
+
+body.dark-mode .skill-pill:hover {
+    background: #ffab91;
+    color: #111;
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.07);
+    background: #fffaf8;
+    transition: box-shadow 0.2s ease;
+}
+
+.project-item:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+body.dark-mode .project-item {
+    background: #222;
+    border-color: rgba(255,255,255,0.06);
+}
+
+.project-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #fff2ee;
+    border: none;
+}
+
+body.dark-mode .project-img {
+    background-color: #2a2a2a;
+}
+
+.project-item strong {
+    font-size: 14px;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+body.dark-mode .project-item strong {
+    color: #e8e8e8;
+}
+
+.project-item p {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Education Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    border-left: 2px solid #ff4500;
+}
+
+body.dark-mode .timeline {
+    border-left-color: #ffab91;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 24px;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff4500;
+    border: 2px solid #fff2ee;
+    flex-shrink: 0;
+    margin-left: -21px;
+    margin-top: 5px;
+}
+
+body.dark-mode .timeline-dot {
+    background: #ffab91;
+    border-color: #0f0f0f;
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.timeline-year {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff4500;
+}
+
+body.dark-mode .timeline-year {
+    color: #ffab91;
+}
+
+.timeline-program {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+body.dark-mode .timeline-program {
+    color: #e8e8e8;
+}
+
+.timeline-school {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Contact List */
+.contacts-empty {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #fffaf8;
+    border: 0.5px solid rgba(0,0,0,0.05);
+    transition: background 0.2s ease;
+}
+
+.contact-item:hover {
+    background: #fff2ee;
+}
+
+body.dark-mode .contact-item {
+    background: #222;
+    border-color: rgba(255,255,255,0.04);
+}
+
+body.dark-mode .contact-item:hover {
+    background: #2a2a2a;
+}
+
+.contact-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ff4500;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.contact-name {
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+body.dark-mode .contact-name {
+    color: #e8e8e8;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 24px;
+    padding: 16px 0;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #bbb;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+body.dark-mode footer {
+    color: #444;
+    border-top-color: rgba(255,255,255,0.06);
 }
 
 .hidden {
     display: none;
 }
 
-footer {
-    text-align: center; /* Centers the text */
-    margin-top: 30px;
-    padding: 20px 0;
-    font-size: 14px;
-    border-top: 1px solid #ccc; /* Optional: adds a nice separator line */
+/* Contact Form */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-/* Ensure footer text is visible in dark mode */
-body.dark-mode footer {
-    color: #888; 
+.form-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    background: #fffaf8;
+    color: #1a1a1a;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    resize: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #ff4500;
+    background: #fff;
+}
+
+body.dark-mode .form-input,
+body.dark-mode .form-textarea {
+    background: #222;
+    border-color: rgba(255,255,255,0.08);
+    color: #e8e8e8;
+}
+
+body.dark-mode .form-input:focus,
+body.dark-mode .form-textarea:focus {
+    border-color: #ffab91;
+    background: #2a2a2a;
+}
+
+#submitBtn,
+#contact button[type="submit"] {
+    width: 100% !important;
+    padding: 13px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: #ff4500 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    margin-top: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+#submitBtn:hover,
+#contact button[type="submit"]:hover {
+    background: #cc3700 !important;
+}
+
+#submitBtn:active,
+#contact button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin: 8px 0;
+    border: 0.5px solid rgba(0,0,0,0.08);
+}
+
+body.dark-mode .navbar {
+    background: rgba(26, 26, 26, 0.85);
+    border-color: rgba(255,255,255,0.08);
+}
+
+.navbar button {
+    background: transparent;
+    color: #444;
+    border: none;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar button:hover {
+    background: rgba(255,69,0,0.08);
+    color: #ff4500;
+}
+
+body.dark-mode .navbar button {
+    color: #aaa;
+}
+
+body.dark-mode .navbar button:hover {
+    background: rgba(255,171,145,0.1);
+    color: #ffab91;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main section {
+  scroll-margin-top: 90px; /* Navbar height + padding */
 }

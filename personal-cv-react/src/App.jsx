@@ -5,33 +5,35 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
 import ContactForm from "./components/Contact";
+import ContactList from "./components/ContactList"; // ADD THIS
+import Navbar from "./components/Navbar";
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // --- MODULE 6 DATA STRUCTURES ---
-  const skillsData = ["HTML", "CSS", "JavaScript", "React", "Frontend Development", "Git"];
+  const skillsData = ["HTML", "CSS", "JavaScript", "React", "Frontend Development", "Git", "Postgresql", "Laravel"];
 
   const educationData = [
     {
       year: "2024 - Present",
-      program: "BS Information Technology",
-      school: "USTP"
+      program: "Bachelor of Science in Information Technology",
+      school: "University of Science and Technology of Southern Philippines"
     },
     {
       year: "2022 - 2024",
       program: "Senior High School",
-      school: "PHINMA - COC"
+      school: "PHINMA - Cagayan de Oro College"
     },
     {
       year: "2018 - 2022",
       program: "Highschool",
-      school: "Tablon NHS"
+      school: "Tablon National HighSchool"
     },
     {
       year: "2012 - 2018",
       program: "Elementary School",
-      school: "Tablon ES"
+      school: "Tablon Elementary School"
     }
   ];
 
@@ -47,18 +49,16 @@ function App() {
     <div className={darkMode ? "dark-mode" : ""}>
       <div className="container">
         <Header toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
+        <Navbar />
         <main>
-          <About />
-          
-          {/* TASK 1: Passing skills array as a prop */}
-          <Skills skills={skillsData} />
-          
-          <Projects />
-          
-          {/* TASK 3: Passing education array as a prop */}
-          <Education education={educationData} />
-          
-          <ContactForm />
+          <section id="about"><About /></section>
+          <section id="skills"><Skills skills={skillsData} /></section>
+          <section id="projects"><Projects /></section>
+          <section id="education"><Education education={educationData} /></section>
+          <section id="contacts">
+            <ContactList />
+            <ContactForm />
+          </section>
         </main>
         <footer>
           <p>&copy; 2026 Juvelyn A. Virtudes. All rights reserved.</p>
